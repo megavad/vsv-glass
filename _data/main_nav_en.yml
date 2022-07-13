@@ -1,0 +1,20 @@
+- title: MAIN
+  link: /
+  show_on_mobile: true
+- title: PROJECTS
+  link: /projs/
+  show_on_mobile: true
+- title: TECH.DATA
+  link: /resources/
+  show_on_mobile: true
+- title: IN PICS
+  link: /showcase/
+  show_on_mobile: false
+- title: INSP_AGC
+  link: insp_proj.html
+  show_on_mobile: true
+- title: About
+  link:  about.html
+- title: Ru
+  show_on_mobile: true
+  link: /index_ru.html

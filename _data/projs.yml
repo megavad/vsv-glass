@@ -1,0 +1,36 @@
+- title: AGC inspection for glass cutting line
+  docs:
+    - link: /projs/insp_proj/
+    - link: /projs/insp_proj/idea/
+    - link: /projs/insp_proj/solution/pilot/
+- title: Software gateway for Pacific inspection app
+  docs:
+    - link: /projs/gw/
+    - link: /projs/gw/idea/
+    - link: /projs/gw/engineering/
+    - link: /projs/gw/solution/
+
+- title: RSView to FactoryTalk migration
+  docs:
+    - link: /projs/rs/
+    - link: /projs/rs/idea/
+    - link: /projs/rs/scope/
+    - link: /projs/rs/solutions/
+    - link: /projs/rs/shop90/
+    - link: /projs/rs/finally/
+- title: Smart Factory for window processing
+  docs:
+    - link: /projs/sf/
+    - link: /projs/sf/idea/
+    - link: /projs/sf/hardware/
+    - link: /projs/sf/
+    - link: /docs/layouts/
+    - link: /docs/permalinks/
+    - link: /docs/themes/
+    - link: /docs/pagination/
+- title: Hobby projects
+  docs:
+    - link: /docs/plugins/
+    - link: /docs/migrations/
+    - link: /docs/upgrading/
+    - link: /docs/deployment/

@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Cache API</title>
+  </head>
+  <body>
+    
+<header>
+<link rel="stylesheet" href="/css/screen.css">
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">test</span>
+          <img src="/img/logo.png" width="140" height="65" alt="Jekyll Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/">MAIN</a></li>
+  <li><a href="/projs/">PROJECTS</a></li>
+  <li><a href="/resources/">TECH.DATA</a></li>
+  <li><a href="/showcase/">IN PICS</a></li>
+  <li><a href="/insp_proj.html">INSP_AGC</a></li>
+  <li><a href="/about.html">About</a></li>
+  <li><a href="/index_ru.html">Ru</a></li>
+  </ul>
+</nav>
+    <!--div class="search hide-on-mobiles">
+      {/% include search/input.html -%}
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="/releases/tag/v">v</a></li>
+        <li><a href="">GitHub</a></li>
+
+      </ul>
+    </div>-->
+  </div>
+  <!--nav class="mobile-nav show-on-mobiles">
+    {/% include mobile-nav-items.html -%}
+  </nav-->
+</header>
+
+    <section class="desc">
+  <div class="grid">
+    <!-- {/% include docs_contents_mobile.html -%} currently not opt for mobiles-->
+    <div class="unit four-fifths">
+      <article>
+        <h1>Description</h1>
+        <h2>. Cache API</h2>
+        <p>Jekyll includes a caching API, which is used both internally as well as exposed
+for plugins, which can be used to cache the output of deterministic functions to
+speed up site generation. This cache will be persistent across builds, but
+cleared when Jekyll detects any changes to <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+<h2 id="jekyllcachenewname--new_cache">Jekyll::Cache.new(name) → new_cache</h2>
+
+<p>If there has already been a cache created with <code class="language-plaintext highlighter-rouge">name</code>, this will return a
+reference to that existing Cache. Otherwise, create a new Cache called <code class="language-plaintext highlighter-rouge">name</code>.</p>
+
+<p>If this Cache will be used by a Gem-packaged plugin, <code class="language-plaintext highlighter-rouge">name</code> should either be the
+name of the Gem, or prefixed with the name of the Gem followed by <code class="language-plaintext highlighter-rouge">::</code> (if a
+plugin expects to use multiple Caches). If this Cache will be used internally by
+Jekyll, <code class="language-plaintext highlighter-rouge">name</code> should be the name of the class that is using the Cache (ie:
+<code class="language-plaintext highlighter-rouge">"Jekyll::Converters::Markdown"</code>).</p>
+
+<p>Cached objects are shared between all Caches created with the same <code class="language-plaintext highlighter-rouge">name</code>, but
+are <em>not</em> shared between Caches with different names. There can be an object
+stored with key <code class="language-plaintext highlighter-rouge">1</code> in <code class="language-plaintext highlighter-rouge">Jekyll::Cache.new("a")</code> and an object stored with key
+<code class="language-plaintext highlighter-rouge">1</code> in <code class="language-plaintext highlighter-rouge">Jekyll::Cache.new("b")</code> and these will not point to the same cached
+object. This way, you do not need to ensure that keys are globally unique.</p>
+
+<h2 id="getsetkey-block">getset(key) {block}</h2>
+
+<p>This is the most common way to utilize the Cache.</p>
+
+<p><code class="language-plaintext highlighter-rouge">block</code> is a bit of code that takes a lot of time to compute, but always
+generates the same output given a particular input (like converting Markdown to
+HTML). <code class="language-plaintext highlighter-rouge">key</code> is a <code class="language-plaintext highlighter-rouge">String</code> (or an object with <code class="language-plaintext highlighter-rouge">to_s</code>) that uniquely identifies
+the input to the function.</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">key</code> already exists in the Cache, it will be returned and <code class="language-plaintext highlighter-rouge">block</code> will never
+be executed. If <code class="language-plaintext highlighter-rouge">key</code> does not exist in the Cache, <code class="language-plaintext highlighter-rouge">block</code> will be executed and
+the result will be added to the Cache and returned.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cache</span>
+  <span class="vc">@@cache</span> <span class="o">||=</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">Cache</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"ConvertMarkdown"</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">convert_markdown_to_html</span><span class="p">(</span><span class="n">markdown</span><span class="p">)</span>
+  <span class="n">cache</span><span class="p">.</span><span class="nf">getset</span><span class="p">(</span><span class="n">markdown</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">expensive_conversion_method</span><span class="p">(</span><span class="n">markdown</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>In the above example, <code class="language-plaintext highlighter-rouge">expensive_conversion_method</code> will only be called once for
+any given <code class="language-plaintext highlighter-rouge">markdown</code> input. If <code class="language-plaintext highlighter-rouge">convert_markdown_to_html</code> is called a second
+time with the same input, the cached output will be returned.</p>
+
+<p>Because posts will frequently remain unchanged from one build to the next, this
+is an effective way to avoid performing the same computations each time the site
+is built.</p>
+
+<h2 id="clear">clear</h2>
+
+<p>This will clear all cached objects from a particular Cache. The Cache will be
+empty, both in memory and on disk.</p>
+
+<h3 id="the-following-methods-will-probably-only-be-used-in-special-circumstances">The following methods will probably only be used in special circumstances</h3>
+
+<h2 id="cachekey--value">cache[key] → value</h2>
+
+<p>Fetches <code class="language-plaintext highlighter-rouge">key</code> from Cache and returns its <code class="language-plaintext highlighter-rouge">value</code>. Raises if <code class="language-plaintext highlighter-rouge">key</code> does not exist
+in Cache.</p>
+
+<h2 id="cachekey--value-1">cache[key] = value</h2>
+
+<p>Adds <code class="language-plaintext highlighter-rouge">value</code> to Cache under <code class="language-plaintext highlighter-rouge">key</code>.
+Returns nothing.</p>
+
+<h2 id="keykey--true-or-false">key?(key) → true or false</h2>
+
+<p>Returns <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">key</code> already exists in Cache. False otherwise.</p>
+
+<h2 id="deletekey">delete(key)</h2>
+
+<p>Removes <code class="language-plaintext highlighter-rouge">key</code> from Cache.
+Returns nothing.</p>
+
+        <ol class="step-nav">
+  </ol>
+</article>
+    </div>
+   <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>AGC inspection for glass cutting line</h4>
+      <ul>
+      <!--/projs/insp_proj/-->
+        <li><a href="/projs/insp_proj/">AGC cutting line inspection</a></li>
+      <!--/projs/insp_proj/idea/-->
+        <li><a href="/projs/insp_proj/idea/">Idea</a></li>
+      <!--/projs/insp_proj/solution/pilot/-->
+        <li><a href="/projs/insp_proj/solution/pilot/">Pilot solution</a></li>
+      <!--item=Engineering preparations-->
+      <!--item=Index-->
+      <!--item=AGC cutting line inspection-->
+      <!--item=Pilot solution-->
+      <!--item=Idea-->
+      <!--item=Idea-->
+      <!--item=Environments-->
+      </ul>
+    <h4>Software gateway for Pacific inspection app</h4>
+      <ul>
+      <!--/projs/gw/-->
+        <li><a href=""></a></li>
+      <!--/projs/gw/idea/-->
+        <li><a href=""></a></li>
+      <!--/projs/gw/engineering/-->
+        <li><a href="/projs/gw/engineering/">Engineering preparations</a></li>
+      <!--/projs/gw/solution/-->
+        <li><a href=""></a></li>
+      <!--item=Engineering preparations-->
+      <!--item=Index-->
+      <!--item=AGC cutting line inspection-->
+      <!--item=Pilot solution-->
+      <!--item=Idea-->
+      <!--item=Idea-->
+      <!--item=Environments-->
+      </ul>
+    <h4>RSView to FactoryTalk migration</h4>
+      <ul>
+      <!--/projs/rs/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/idea/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/scope/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/solutions/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/shop90/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/finally/-->
+        <li><a href=""></a></li>
+      <!--item=Engineering preparations-->
+      <!--item=Index-->
+      <!--item=AGC cutting line inspection-->
+      <!--item=Pilot solution-->
+      <!--item=Idea-->
+      <!--item=Idea-->
+      <!--item=Environments-->
+      </ul>
+    <h4>Smart Factory for window processing</h4>
+      <ul>
+      <!--/projs/sf/-->
+        <li><a href=""></a></li>
+      <!--/projs/sf/idea/-->
+        <li><a href=""></a></li>
+      <!--/projs/sf/hardware/-->
+        <li><a href=""></a></li>
+      <!--/projs/sf/-->
+        <li><a href=""></a></li>
+      <!--/docs/layouts/-->
+        <li><a href=""></a></li>
+      <!--/docs/permalinks/-->
+        <li><a href=""></a></li>
+      <!--/docs/themes/-->
+        <li><a href=""></a></li>
+      <!--/docs/pagination/-->
+        <li><a href=""></a></li>
+      <!--item=Engineering preparations-->
+      <!--item=Index-->
+      <!--item=AGC cutting line inspection-->
+      <!--item=Pilot solution-->
+      <!--item=Idea-->
+      <!--item=Idea-->
+      <!--item=Environments-->
+      </ul>
+    <h4>Hobby projects</h4>
+      <ul>
+      <!--/docs/plugins/-->
+        <li><a href=""></a></li>
+      <!--/docs/migrations/-->
+        <li><a href=""></a></li>
+      <!--/docs/upgrading/-->
+        <li><a href=""></a></li>
+      <!--/docs/deployment/-->
+        <li><a href=""></a></li>
+      <!--item=Engineering preparations-->
+      <!--item=Index-->
+      <!--item=AGC cutting line inspection-->
+      <!--item=Pilot solution-->
+      <!--item=Idea-->
+      <!--item=Idea-->
+      <!--item=Environments-->
+      </ul>
+    </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+
+  </body>
+</html>
