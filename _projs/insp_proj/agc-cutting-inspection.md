@@ -1,6 +1,7 @@
 ---
 title: AGC cutting line inspection
 permalink: /projs/insp_proj/
+position: 0
 #redirect_from:
 #  - /
 #  - /docs/quickstart/

@@ -3,9 +3,11 @@
     - link: /projs/insp_proj/
     - link: /projs/insp_proj/idea/
     - link: /projs/insp_proj/solution/pilot/
+    - link: /projs/insp_proj/solution/implementation/
 - title: Software gateway for Pacific inspection app
   docs:
     - link: /projs/gw/
+    - link: /projs/gw/common/
     - link: /projs/gw/idea/
     - link: /projs/gw/engineering/
     - link: /projs/gw/solution/

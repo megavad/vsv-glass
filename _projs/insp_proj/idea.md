@@ -1,6 +1,7 @@
 ---
 title: Idea
 permalink: /projs/insp_proj/idea/
+position: 1
 ---
 
 Jekyll gives you a lot of flexibility to customize how it builds your site. These

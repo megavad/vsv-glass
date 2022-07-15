@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Tutorials</title>
+    <title>Implementation</title>
   </head>
   <body>
     
@@ -21,7 +21,7 @@
     <nav class="main-nav hide-on-mobiles">
       <ul>
   <li><a href="/">MAIN</a></li>
-  <li><a href="/projs/">PROJECTS</a></li>
+  <li class="current"><a href="/projs/">PROJECTS</a></li>
   <li><a href="/resources/">TECH.DATA</a></li>
   <li><a href="/showcase/">IN PICS</a></li>
   <li><a href="/insp_proj.html">INSP_AGC</a></li>
@@ -51,38 +51,58 @@
     <div class="unit four-fifths">
       <article>
         <h1>Description</h1>
-        <h2>. Tutorials</h2>
-        <p>In contrast to <a href="/docs/home/">Docs</a>, Tutorials provide more detailed, narrative instruction that cover a variety of Jekyll topics and scenarios. Tutorials might contain the following:</p>
+        <h2>4. Implementation</h2>
+        <p>In the <code class="language-plaintext highlighter-rouge">build</code> (or <code class="language-plaintext highlighter-rouge">serve</code>) arguments, you can specify a Jekyll environment
+and value. The build will then apply this value in any conditional statements
+in your content.</p>
 
-<ul>
-  <li>Step-by-step processes through particular scenarios or challenges</li>
-  <li>Full walk-throughs using sample data, showing inputs and results from the sample data</li>
-  <li>Detailed explanation about the pros and cons for different Jekyll strategies</li>
-  <li>End-to-end instruction in developing a complete feature on a Jekyll site</li>
-  <li>Instruction that combines various techniques from across the docs</li>
-</ul>
+<p>For example, suppose you set this conditional statement in your code:</p>
 
-<p>In short, tutorials aren’t the core reference information in docs. They walk users through processes from beginning to end.</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">jekyll</span><span class="p">.</span><span class="nv">environment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"production"</span><span class="w"> </span><span class="p">%}</span>
+   <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>disqus.html<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
 
-<p class="note info">The Tutorials section is new, so there aren’t many tutorials yet. You can add a tutorial here to help populate this section.</p>
+<p>When you build your Jekyll site, the content inside the <code class="language-plaintext highlighter-rouge">if</code> statement won’t be
+run unless you also specify a <code class="language-plaintext highlighter-rouge">production</code> environment in the build command,
+like this:</p>
 
-<p>Some of these techniques might even guide you through a supporting tool, script, service, or other hack used with your Jekyll site. Feel free to include tutorials involving external services with Jekyll as well. However, note that Jekyll in no way endorses any third-party tools mentioned in tutorials.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production jekyll build
+</code></pre></div></div>
 
-<h2 id="how-to-contribute-a-tutorial">How to contribute a tutorial</h2>
+<p>Specifying an environment value allows you to make certain content available
+only within specific environments.</p>
 
-<p>We welcome your tutorial contributions. To add your tutorial:</p>
+<p>The default value for <code class="language-plaintext highlighter-rouge">JEKYLL_ENV</code> is <code class="language-plaintext highlighter-rouge">development</code>. Therefore if you omit
+<code class="language-plaintext highlighter-rouge">JEKYLL_ENV</code> from the build arguments, the default value will be
+<code class="language-plaintext highlighter-rouge">JEKYLL_ENV=development</code>. Any content inside
+<code class="language-plaintext highlighter-rouge">{% if jekyll.environment == "development" %}</code> tags will
+automatically appear in the build.</p>
 
-<ol>
-  <li>Fork the Jekyll project by clicking the <strong>Fork</strong> button in the upper-right corner of the <a href="https://github.com/jekyll/jekyll/">jekyll/jekyll project GitHub repo</a>.</li>
-  <li>Add your tutorial in the <code class="language-plaintext highlighter-rouge">_tutorials</code> collection.</li>
-  <li>Make sure your tutorial has the same front matter items as other tutorial items.</li>
-  <li>Add a reference to your tutorial filename in <code class="language-plaintext highlighter-rouge">_data/tutorials.yml</code>. This allows your tutorial to appear in the Tutorials sidebar.</li>
-  <li>Follow the regular git workflow to submit the pull request.</li>
-</ol>
+<p>Your environment values can be anything you want (not just <code class="language-plaintext highlighter-rouge">development</code> or
+<code class="language-plaintext highlighter-rouge">production</code>). Some elements you might want to hide in development
+environments include Disqus comment forms or Google Analytics. Conversely,
+you might want to expose an “Edit me in GitHub” button in a development
+environment but not include it in production environments.</p>
 
-<p>When you submit your pull request, the Jekyll documentation team will review your contribution and either merge it or suggest edits.</p>
+<p>By specifying the option in the build command, you avoid having to change
+values in your configuration files when moving from one environment to another.</p>
 
-        <ol class="step-nav">
+<p class="note">To switch part of your config settings depending on the environment, use the
+<a href="/docs/configuration/options/#build-command-options">build command option</a>,
+for example <code>--config _config.yml,_config_development.yml</code>. Settings
+in later files override settings in earlier files.</p>
+
+        <div class="section-nav">
+      <div class="left align-right">
+        <a href="" class="prev">Back</a>
+        </div>
+      <div class="right align-left">
+      <span class="next disabled">Next</span>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <ol class="step-nav">
   <li><a href="/projs/gw/common/">System introduction</a></li>
   <li><a href="/projs/gw/engineering/">Engineering preparations</a></li>
   <li><a href="/projs/index/">Index</a></li>
@@ -90,7 +110,7 @@
   <li><a href="/projs/insp_proj/solution/pilot/">Pilot solution</a></li>
   <li><a href="/projs/insp_proj/idea/">Idea</a></li>
   <li><a href="/projs/insp_proj/insp_proj/">Idea</a></li>
-  <li><a href="/projs/insp_proj/solution/implementation/">Implementation</a></li>
+  <li class="current"><a href="/projs/insp_proj/solution/implementation/">Implementation</a></li>
   </ol>
 </article>
     </div>
@@ -105,7 +125,7 @@
       <!--/projs/insp_proj/solution/pilot/-->
         <li><a href="/projs/insp_proj/solution/pilot/">Pilot solution</a></li>
       <!--/projs/insp_proj/solution/implementation/-->
-        <li><a href="/projs/insp_proj/solution/implementation/">Implementation</a></li>
+        <li class="current"><a href="/projs/insp_proj/solution/implementation/">Implementation</a></li>
       <!--item=System introduction-->
       <!--item=Engineering preparations-->
       <!--item=Index-->

@@ -1,6 +1,7 @@
 ---
 title: Engineering preparations
 permalink: /projs/gw/engineering/
+position: 1
 #redirect_from:
 #  - /
 #  - /docs/quickstart/

@@ -1,6 +1,7 @@
 ---
-title: Environments
-permalink: "/projs/insp_proj/idea/options/"
+title: Implementation
+permalink: /projs/insp_proj/solution/implementation/
+position: 4
 ---
 In the `build` (or `serve`) arguments, you can specify a Jekyll environment
 and value. The build will then apply this value in any conditional statements

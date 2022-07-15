@@ -1,6 +1,7 @@
 ---
 title: Pilot solution
 permalink: /projs/insp_proj/solution/pilot/
+position: 2
 ---
 
 Jekyll runs with the following configuration options by default. Alternative
