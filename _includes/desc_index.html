@@ -27,7 +27,7 @@
 <ol class="step-nav">
   {% for step in docs -%}
   <li {%- if step.url == page.url %} class="current"{% endif %}><a href="{{ step.url }}">
-    {{- step.title -}}
+    {{ step.title }}
   </a></li>
   {% endfor -%}
 </ol>

@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Convert an HTML site to Jekyll</title>
+    <title>Idea</title>
   </head>
   <body>
     
@@ -21,7 +21,7 @@
     <nav class="main-nav hide-on-mobiles">
       <ul>
   <li><a href="/">MAIN</a></li>
-  <li><a href="/projs/">PROJECTS</a></li>
+  <li class="current"><a href="/projs/">PROJECTS</a></li>
   <li><a href="/resources/">TECH.DATA</a></li>
   <li><a href="/showcase/">IN PICS</a></li>
   <li><a href="/insp_proj.html">INSP_AGC</a></li>
@@ -51,17 +51,45 @@
     <div class="unit four-fifths">
       <article>
         <h1>Description</h1>
-        <h2>. Convert an HTML site to Jekyll</h2>
-        <p>If you’re looking for themes for your Jekyll site, you don’t have to restrict yourself to existing Jekyll themes. It’s pretty easy to convert almost any static HTML files into a Jekyll website.</p>
+        <h2>1. Idea</h2>
+        <p>Main idea was to remove Mitsubishi PLC from dataflow chain.</p>
 
-        <ol class="step-nav">
+<p>Pilot project is based on computers with Windows XP embedded as Inspection system core, and line PLC - Siemens with communication processor dedicated for this task.</p>
+
+<p>Our application (GW) should read all traffic from inspection application(APP), running on “Main PC”, to RS232 via Melsec protocol, extract necessary bits and bytes and send it via socket to Siemens (PLC). Also GW should answer to APP with watchdog bit (it should be changed once per 500ms).</p>
+
+<img src="/img/gw_simplified.svg">
+
+<p>First of all we need to sniff some traffic and analyze typical dataflow. Below you could see example of data from remote PC to Mitsubishi PLC</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">25</span>	<span class="mf">0.00000838</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_BAUD_RATE</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">Rate</span><span class="o">:</span> <span class="mi">9600</span>
+<span class="mi">26</span>	<span class="mf">0.00000587</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_RTS</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>		
+<span class="mi">27</span>	<span class="mf">0.00000587</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_DTR</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>		
+<span class="mi">28</span>	<span class="mf">0.00000419</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_LINE_CONTROL</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">StopBits</span><span class="o">:</span> <span class="mi">1</span> <span class="n">Parity</span><span class="o">:</span> <span class="n">ODD</span> <span class="n">WordLength</span><span class="o">:</span> <span class="mi">8</span>
+<span class="mi">29</span>	<span class="mf">0.00000335</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_CHAR</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">EOF</span><span class="o">:</span><span class="mi">0</span> <span class="n">ERR</span><span class="o">:</span><span class="mi">0</span> <span class="n">BRK</span><span class="o">:</span><span class="mi">0</span> <span class="n">EVT</span><span class="o">:</span><span class="mi">0</span> <span class="n">XON</span><span class="o">:</span><span class="mi">11</span> <span class="n">XOFF</span><span class="o">:</span><span class="mi">13</span>
+<span class="mi">30</span>	<span class="mf">0.00000503</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_HANDFLOW</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">Shake</span><span class="o">:</span><span class="mi">1</span> <span class="n">Replace</span><span class="o">:</span><span class="mi">40</span> <span class="n">XonLimit</span><span class="o">:</span><span class="mi">2048</span> <span class="n">XoffLimit</span><span class="o">:</span><span class="mi">512</span>
+<span class="mi">31</span>	<span class="mf">0.00000335</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_QUEUE_SIZE</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">InSize</span><span class="o">:</span> <span class="mi">1024</span> <span class="n">OutSize</span><span class="o">:</span> <span class="mi">1024</span>
+</code></pre></div></div>
+
+<p class="note">тест</p>
+
+        <div class="section-nav">
+      <div class="left align-right">
+        <a href="" class="prev">Back</a>
+        </div>
+      <div class="right align-left">
+      <a href="" class="next">Next</a>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <ol class="step-nav">
   <li><a href="/projs/gw/common/">
     System introduction
   </a></li>
   <li><a href="/projs/gw/engineering/">
     Engineering
   </a></li>
-  <li><a href="/projs/gw/idea/">
+  <li class="current"><a href="/projs/gw/idea/">
     Idea
   </a></li>
   <li><a href="/projs/index/">
@@ -114,7 +142,7 @@
       <!--/projs/gw/common/-->
         <li><a href="/projs/gw/common/">System introduction</a></li>
       <!--/projs/gw/idea/-->
-        <li><a href="/projs/gw/idea/">Idea</a></li>
+        <li class="current"><a href="/projs/gw/idea/">Idea</a></li>
       <!--/projs/gw/engineering/-->
         <li><a href="/projs/gw/engineering/">Engineering</a></li>
       <!--item=System introduction-->

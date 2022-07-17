@@ -8,12 +8,12 @@ position: 0
 #  - /docs/extras/
 ---
 
-## Тест1
-* This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (<1mm in diameter) defects detected by precise laser measurement system during float process and marked with color.
+## Idea
+This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (<1mm in diameter) defects detected by precise laser measurement system during float process and marked with color.
 
-* Continuous float glass ribbon from furnace dividing into rectangles with special size to minimize waste in next cutting operations (in accordance with planned model of the car), and we are detecting white rounds on that rectangles.
+Continuous float glass ribbon from furnace dividing into rectangles with special size to minimize waste in next cutting operations (in accordance with planned model of the car), and we are detecting white rounds on that rectangles.
 
-* These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.
+These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.
 {::nomarkdown}
 <img src="/img/rectangle.png">
 {:/}
