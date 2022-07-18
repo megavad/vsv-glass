@@ -51,8 +51,8 @@
     <div class="unit four-fifths">
       <article>
         <h1>Description</h1>
-        <h2>1. Initial technical solution</h2>
-        <p>Initial soultion was based on data that application (APP) could receive from Sick MLG2 sensor bar (MLG) via Ethernet/IP(with cifX 50E-RE PCIE card) every 10ms and encoder + glass sensor data via IO PCIE board from Advantech (PCI-1884).</p>
+        <h2>2. Initial technical solution</h2>
+        <p>Initial soultion was based on data that application (APP) could receive from Sick MLG2 sensor bar (MLG) via Ethernet/IP(with cifX 50E-RE PCIE card) every 10ms and encoder + glass sensor data via IO PCIE board from Advantech (PCIE-1884).</p>
 
 <p>Ethernet/IP protocol was initially in solution because of PLC-based pre-solution.</p>
 
@@ -60,7 +60,7 @@
 <ul>
   <li>GUI with current NC-file reading and visualization (every 1 sec)</li>
   <li>Ethernet/IP CIP message handler thread (continuous)</li>
-  <li>PCI-1884 encoder counlter/Digital Input handler thread (every 1ms)</li>
+  <li>PCIE-1884 (Advantech) encoder counlter/Digital Input handler thread (every 1ms)</li>
   <li>VSM cutting app log reading thread (if new NC file opened and sent to work by operator), every 30 seconds</li>
   <li>SLC 5/05 signal handler thread (every 100 ms)</li>
   <li>calculation thread (event-based)
@@ -68,7 +68,11 @@ Because of slow delivery of cards deep investigation of CIP session establishing
 Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethernet/IP task without cifX 50E-RE PCIE card (we need to receive UDP messages from MLG every 10ms to achieve necessary resolution).</li>
 </ul>
 
-<p>Advanteh Spartan-6 based IO card was also not good solution because of a bug (value -1 on every counter channel even if we do not use it, and no reaction on any event after that until you switch off this device in Device Manager and turn on again) and no reaction from official support - we decide not to use Advantech cards due to terrible support.</p>
+<p class="note warning">Advantech Spartan-6 based IO card was also not good solution because of a buggy driver (value -1 on every counter channel even if we do not use it, and no reaction on any event after that until you switch off this device in Device Manager and turn on again) and no reaction from official support - we decide not to use Advantech cards due to terrible support.</p>
+
+<img src="/img/schema_actual.svg">
+
+<p class="note info">This is actual variant of the system.</p>
 
         <div class="section-nav">
       <div class="left align-right">
@@ -95,8 +99,11 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
   <li><a href="/projs/insp_proj/">
     AGC cutting line inspection
   </a></li>
-  <li><a href="/projs/insp_proj/solution/pilot/">
+  <li><a href="/projs/insp_proj/solution/automotive_cutting_line/">
     Pilot solution
+  </a></li>
+  <li><a href="/projs/gw/engineering/">
+    Engineering
   </a></li>
   <li class="current"><a href="/projs/insp_proj/initial_solution/">
     Initial technical solution
@@ -118,8 +125,8 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
         <li><a href="/projs/insp_proj/">AGC cutting line inspection</a></li>
       <!--/projs/insp_proj/initial_solution/-->
         <li class="current"><a href="/projs/insp_proj/initial_solution/">Initial technical solution</a></li>
-      <!--/projs/insp_proj/solution/pilot/-->
-        <li><a href="/projs/insp_proj/solution/pilot/">Pilot solution</a></li>
+      <!--/projs/insp_proj/solution/automotive_cutting_line/-->
+        <li><a href="/projs/insp_proj/solution/automotive_cutting_line/">Pilot solution</a></li>
       <!--/projs/insp_proj/solution/implementation/-->
         <li><a href="/projs/insp_proj/solution/implementation/">Implementation</a></li>
       <!--item=System introduction-->
@@ -128,6 +135,7 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
       <!--item=Index-->
       <!--item=AGC cutting line inspection-->
       <!--item=Pilot solution-->
+      <!--item=Engineering-->
       <!--item=Initial technical solution-->
       <!--item=Idea-->
       <!--item=Implementation-->
@@ -148,6 +156,7 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
       <!--item=Index-->
       <!--item=AGC cutting line inspection-->
       <!--item=Pilot solution-->
+      <!--item=Engineering-->
       <!--item=Initial technical solution-->
       <!--item=Idea-->
       <!--item=Implementation-->
@@ -172,6 +181,7 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
       <!--item=Index-->
       <!--item=AGC cutting line inspection-->
       <!--item=Pilot solution-->
+      <!--item=Engineering-->
       <!--item=Initial technical solution-->
       <!--item=Idea-->
       <!--item=Implementation-->
@@ -200,6 +210,7 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
       <!--item=Index-->
       <!--item=AGC cutting line inspection-->
       <!--item=Pilot solution-->
+      <!--item=Engineering-->
       <!--item=Initial technical solution-->
       <!--item=Idea-->
       <!--item=Implementation-->
@@ -220,6 +231,7 @@ Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethe
       <!--item=Index-->
       <!--item=AGC cutting line inspection-->
       <!--item=Pilot solution-->
+      <!--item=Engineering-->
       <!--item=Initial technical solution-->
       <!--item=Idea-->
       <!--item=Implementation-->

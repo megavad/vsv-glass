@@ -1,6 +1,6 @@
 ---
 title: Pilot solution
-permalink: /projs/insp_proj/solution/pilot/
+permalink: /projs/insp_proj/solution/automotive_cutting_line/
 position: 2
 ---
 
