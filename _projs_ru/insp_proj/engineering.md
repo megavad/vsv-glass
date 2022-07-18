@@ -1,6 +1,6 @@
 ---
 title: Engineering
-permalink: /projs/insp_proj/engineering/
+permalink: /projs_ru/insp_proj/engineering/
 position: 2
 #redirect_from:
 #  - /
@@ -8,7 +8,7 @@ position: 2
 #  - /docs/extras/
 ---
 
-All data for Melsec messaging we need - stored in the ini file of APP. We have two apps - for Main PC and for Remote PC. To reduce details - tasks were very closed to each other and we will review solution for Main PC only.
+All data we need stored in the ini file of APP. We have two apps - for Main PC and for Remote PC. To reduce details - tasks were very closed to each other and we will review solution for Main PC only.
 
 
 First of all we need to sniff some traffic and analyze typical dataflow. Below you could see example of traffic from remote PC to Mitsubishi PLC - establishing communication.

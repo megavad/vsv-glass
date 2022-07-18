@@ -1,5 +1,5 @@
 ---
 menu_name: Automotive - glass cutting line
-position: 1
+permalink: /projs/
 ---
-pro index.md
+### Here you could read about some projects for plants done

@@ -29,6 +29,11 @@ defaults:
   values:
     layout: desc
 - scope:
+    path: _projs_ru
+    type: projs_ru
+  values:
+    layout: desc_ru
+- scope:
     path: _docs
     type: docs
   values:

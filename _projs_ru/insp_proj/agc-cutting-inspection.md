@@ -1,6 +1,6 @@
 ---
-title: Cutting line inspection system
-permalink: /projs/insp_proj/
+title: Инспекционная система для линии резки
+permalink: /projs_ru/insp_proj/
 position: 0
 #redirect_from:
 #  - /
@@ -8,14 +8,17 @@ position: 0
 #  - /docs/extras/
 ---
 
-#  Abstract
-Sometimes during float process small defects on glass ribbon would be present. This areas of ribbon should be scrapped on float line and then go to furnace again. Scrap area sheet size is big, and if it could be divided into pieces that could be reworked or scrapped separately - it could be reasonable.
+#  Аннотация
+Иногда при выпуске листового стекла с помощью флоат-професса возникают мелкие дефекты. Область возникновения этих дефектов утилизируется и снова подаётся в печь. Дефективная область обладает достаточно большой площадью, если её разделить на части, которые бы могли быть переработаны или утилизированы по отдельности - это было бы разумно.
+
+Производство автостекла на заводе в г. Бор расположено рядом с флоат-процессом, и это производство может принять дефективные листы, поделенные на нужного размера прямоугольники, и использовать их для производства бокового стекла. Один дефект может затронуть от 1 до 4 заготовок(будущих боковых стёкол) из прямоугльной заготовки. На одном прямоугольном листе могут быть от 2 до 30 заготовок боковых стёкол.
+
 Automotive production in Bor is located near float process, and it could get this glass sheet divided to rectangle pieces for side window production process. One defect could affect from 1 to 4 side window raw quadrangles (each one should become side window if no defect on it) from sheet. From 2 to 30 quadrangles could be on one sheet.  
 
-# Idea
- Main idea is to detect defect position and size, then calculate which quadrangles are affected and scrap these quadrangles automatically.
+#  Идея
+Основная идея заключается в обнаружении позиции и размера дефекта, вычисления заготовок, которые будут им затронуты, и автоматическая утилизация эатронутых заготовок.
 
-# Solution
+#  Решение
 This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (<1mm in diameter) defects detected by precise laser measurement system during float process and marked with white color.
 {::nomarkdown}
 <img src="/img/typical_float.jpg">

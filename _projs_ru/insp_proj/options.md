@@ -1,6 +1,6 @@
 ---
-title: Implementation
-permalink: /projs/insp_proj/solution/implementation/
+title: Реализация
+permalink: /projs_ru/insp_proj/solution/implementation/
 position: 3
 ---
 In the `build` (or `serve`) arguments, you can specify a Jekyll environment

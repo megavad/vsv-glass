@@ -1,6 +1,6 @@
 ---
-title: Initial technical solution
-permalink: /projs/insp_proj/initial_solution/
+title: Проработка решения
+permalink: /projs_ru/insp_proj/initial_solution/
 position: 1
 ---
 

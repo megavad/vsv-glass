@@ -1,0 +1,18 @@
+---
+layout: default_ru
+---
+<section class="desc">
+  <div class="grid">
+    <!-- {/% include docs_contents_mobile.html -%} currently not opt for mobiles-->
+    <div class="unit four-fifths">
+      <article>
+        <h1>Описание</h1>
+        <h2>{{ page.position }}. {{ page.title }}</h2>
+        {{ content }}
+        {% include desc_index_ru.html -%}
+      </article>
+    </div>
+   {% include desc_contents_ru.html -%}
+    <div class="clear"></div>
+  </div>
+</section>

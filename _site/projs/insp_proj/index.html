@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>AGC cutting line inspection</title>
+    <title>Cutting line inspection system</title>
   </head>
   <body>
     
@@ -51,9 +51,16 @@
     <div class="unit four-fifths">
       <article>
         <h1>Description</h1>
-        <h2>0. AGC cutting line inspection</h2>
-        <h2 id="idea">Idea</h2>
-<p>This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (&lt;1mm in diameter) defects detected by precise laser measurement system during float process and marked with color.
+        <h2>0. Cutting line inspection system</h2>
+        <h1 id="abstract">Abstract</h1>
+<p>Sometimes during float process small defects on glass ribbon would be present. This areas of ribbon should be scrapped on float line and then go to furnace again. Scrap area sheet size is big, and if it could be divided into pieces that could be reworked or scrapped separately - it could be reasonable.
+Automotive production in Bor is located near float process, and it could get this glass sheet divided to rectangle pieces for side window production process. One defect could affect from 1 to 4 side window raw quadrangles (each one should become side window if no defect on it) from sheet. From 2 to 30 quadrangles could be on one sheet.</p>
+
+<h1 id="idea">Idea</h1>
+<p>Main idea is to detect defect position and size, then calculate which quadrangles are affected and scrap these quadrangles automatically.</p>
+
+<h1 id="solution">Solution</h1>
+<p>This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (&lt;1mm in diameter) defects detected by precise laser measurement system during float process and marked with white color.
 
 <img src="/img/typical_float.jpg">
 </p>
@@ -62,18 +69,16 @@
 
 <p>Continuous float glass ribbon from furnace dividing into rectangles with special size to minimize waste in next cutting operations (in accordance with planned model of the car), and we are detecting white rounds on that rectangles.</p>
 
+<p>These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.</p>
+
+<img src="/img/rectangle.png">
+<p class="note info">Rectangle with affected quadrangle: defect is represented by rectangle because of detection procedure, its resolution is 10mm, so we need to extend defected area to exclude error (Ex.: when front edge of round could be between IR detectors).</p>
+
 <tr><td>
 <img alt="rectangle glass before VSM cutting" title="rectangle glass before VSM cutting" src="/img/conv_before_vsm.png"></td><td><img src="/img/glass_scrapped_ksm.png"></td>
 </tr>
 
-<p class="note info">On the left there is a rectangle glass before VSM cutting, on the right you could see a frame with scrapped piece of this rectangle with defect on the edge</p>
-
-<p>These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.
-
-<img src="/img/rectangle.png">
-</p>
-
-<p class="note info">Rectangle with affected quadrangle: defect is represented by rectangle because of detection procedure, its resolution is 10mm, so we need to extend defected area to exclude error (Ex.: when front edge of round could be between IR detectors).</p>
+<p class="note info">On the left there is a rectangle glass before VSM cutting, on the right you could see a scrapped piece of this rectangle with white-painted defect on the edge</p>
 
 <h2 id="economics">Economics</h2>
 
@@ -96,17 +101,17 @@ Picture below represents first variant of solution.</p>
   <li><a href="/projs/gw/common/">
     System introduction
   </a></li>
-  <li><a href="/projs/gw/engineering/">
+  <li><a href="/projs/insp_proj/engineering/">
     Engineering
   </a></li>
   <li><a href="/projs/gw/idea/">
     Idea
   </a></li>
-  <li><a href="/projs/index/">
+  <li><a href="/projs/">
     Index
   </a></li>
   <li class="current"><a href="/projs/insp_proj/">
-    AGC cutting line inspection
+    Cutting line inspection system
   </a></li>
   <li><a href="/projs/insp_proj/solution/automotive_cutting_line/">
     Pilot solution
@@ -131,7 +136,7 @@ Picture below represents first variant of solution.</p>
     <h4>AGC inspection for glass cutting line</h4>
       <ul>
       <!--/projs/insp_proj/-->
-        <li class="current"><a href="/projs/insp_proj/">AGC cutting line inspection</a></li>
+        <li class="current"><a href="/projs/insp_proj/">Cutting line inspection system</a></li>
       <!--/projs/insp_proj/initial_solution/-->
         <li><a href="/projs/insp_proj/initial_solution/">Initial technical solution</a></li>
       <!--/projs/insp_proj/solution/automotive_cutting_line/-->
@@ -142,7 +147,7 @@ Picture below represents first variant of solution.</p>
       <!--item=Engineering-->
       <!--item=Idea-->
       <!--item=Index-->
-      <!--item=AGC cutting line inspection-->
+      <!--item=Cutting line inspection system-->
       <!--item=Pilot solution-->
       <!--item=Engineering-->
       <!--item=Initial technical solution-->
@@ -163,7 +168,7 @@ Picture below represents first variant of solution.</p>
       <!--item=Engineering-->
       <!--item=Idea-->
       <!--item=Index-->
-      <!--item=AGC cutting line inspection-->
+      <!--item=Cutting line inspection system-->
       <!--item=Pilot solution-->
       <!--item=Engineering-->
       <!--item=Initial technical solution-->
@@ -188,7 +193,7 @@ Picture below represents first variant of solution.</p>
       <!--item=Engineering-->
       <!--item=Idea-->
       <!--item=Index-->
-      <!--item=AGC cutting line inspection-->
+      <!--item=Cutting line inspection system-->
       <!--item=Pilot solution-->
       <!--item=Engineering-->
       <!--item=Initial technical solution-->
@@ -217,7 +222,7 @@ Picture below represents first variant of solution.</p>
       <!--item=Engineering-->
       <!--item=Idea-->
       <!--item=Index-->
-      <!--item=AGC cutting line inspection-->
+      <!--item=Cutting line inspection system-->
       <!--item=Pilot solution-->
       <!--item=Engineering-->
       <!--item=Initial technical solution-->
@@ -238,7 +243,7 @@ Picture below represents first variant of solution.</p>
       <!--item=Engineering-->
       <!--item=Idea-->
       <!--item=Index-->
-      <!--item=AGC cutting line inspection-->
+      <!--item=Cutting line inspection system-->
       <!--item=Pilot solution-->
       <!--item=Engineering-->
       <!--item=Initial technical solution-->
@@ -251,5 +256,126 @@ Picture below represents first variant of solution.</p>
   </div>
 </section>
 
-  </body>
+    <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>AGC inspection for glass cutting line</h4>
+      <ul>
+      <!--/projs/insp_proj/-->
+        <li class="current"><a href="/projs/insp_proj/">Cutting line inspection system</a></li>
+      <!--/projs/insp_proj/initial_solution/-->
+        <li><a href="/projs/insp_proj/initial_solution/">Initial technical solution</a></li>
+      <!--/projs/insp_proj/solution/automotive_cutting_line/-->
+        <li><a href="/projs/insp_proj/solution/automotive_cutting_line/">Pilot solution</a></li>
+      <!--/projs/insp_proj/solution/implementation/-->
+        <li><a href="/projs/insp_proj/solution/implementation/">Implementation</a></li>
+      <!--item=System introduction-->
+      <!--item=Engineering-->
+      <!--item=Idea-->
+      <!--item=Index-->
+      <!--item=Cutting line inspection system-->
+      <!--item=Pilot solution-->
+      <!--item=Engineering-->
+      <!--item=Initial technical solution-->
+      <!--item=Idea-->
+      <!--item=Implementation-->
+      </ul>
+    <h4>Software gateway for Pacific inspection app</h4>
+      <ul>
+      <!--/projs/gw/-->
+        <li><a href=""></a></li>
+      <!--/projs/gw/common/-->
+        <li><a href="/projs/gw/common/">System introduction</a></li>
+      <!--/projs/gw/idea/-->
+        <li><a href="/projs/gw/idea/">Idea</a></li>
+      <!--/projs/gw/engineering/-->
+        <li><a href="/projs/gw/engineering/">Engineering</a></li>
+      <!--item=System introduction-->
+      <!--item=Engineering-->
+      <!--item=Idea-->
+      <!--item=Index-->
+      <!--item=Cutting line inspection system-->
+      <!--item=Pilot solution-->
+      <!--item=Engineering-->
+      <!--item=Initial technical solution-->
+      <!--item=Idea-->
+      <!--item=Implementation-->
+      </ul>
+    <h4>RSView to FactoryTalk migration</h4>
+      <ul>
+      <!--/projs/rs/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/idea/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/scope/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/solutions/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/shop90/-->
+        <li><a href=""></a></li>
+      <!--/projs/rs/finally/-->
+        <li><a href=""></a></li>
+      <!--item=System introduction-->
+      <!--item=Engineering-->
+      <!--item=Idea-->
+      <!--item=Index-->
+      <!--item=Cutting line inspection system-->
+      <!--item=Pilot solution-->
+      <!--item=Engineering-->
+      <!--item=Initial technical solution-->
+      <!--item=Idea-->
+      <!--item=Implementation-->
+      </ul>
+    <h4>Smart Factory for window processing</h4>
+      <ul>
+      <!--/projs/sf/-->
+        <li><a href=""></a></li>
+      <!--/projs/sf/idea/-->
+        <li><a href=""></a></li>
+      <!--/projs/sf/hardware/-->
+        <li><a href=""></a></li>
+      <!--/projs/sf/-->
+        <li><a href=""></a></li>
+      <!--/docs/layouts/-->
+        <li><a href=""></a></li>
+      <!--/docs/permalinks/-->
+        <li><a href=""></a></li>
+      <!--/docs/themes/-->
+        <li><a href=""></a></li>
+      <!--/docs/pagination/-->
+        <li><a href=""></a></li>
+      <!--item=System introduction-->
+      <!--item=Engineering-->
+      <!--item=Idea-->
+      <!--item=Index-->
+      <!--item=Cutting line inspection system-->
+      <!--item=Pilot solution-->
+      <!--item=Engineering-->
+      <!--item=Initial technical solution-->
+      <!--item=Idea-->
+      <!--item=Implementation-->
+      </ul>
+    <h4>Hobby projects</h4>
+      <ul>
+      <!--/docs/plugins/-->
+        <li><a href=""></a></li>
+      <!--/docs/migrations/-->
+        <li><a href=""></a></li>
+      <!--/docs/upgrading/-->
+        <li><a href=""></a></li>
+      <!--/docs/deployment/-->
+        <li><a href=""></a></li>
+      <!--item=System introduction-->
+      <!--item=Engineering-->
+      <!--item=Idea-->
+      <!--item=Index-->
+      <!--item=Cutting line inspection system-->
+      <!--item=Pilot solution-->
+      <!--item=Engineering-->
+      <!--item=Initial technical solution-->
+      <!--item=Idea-->
+      <!--item=Implementation-->
+      </ul>
+    </aside>
+</div>
+</body>
 </html>

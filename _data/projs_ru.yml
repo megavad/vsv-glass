@@ -1,0 +1,36 @@
+- title: Инспекционная система для линии резки
+  docs:
+    - link: /projs_ru/insp_proj/
+    - link: /projs_ru/insp_proj/initial_solution/
+    - link: /projs_ru/insp_proj/solution/automotive_cutting_line/
+    - link: /projs_ru/insp_proj/solution/implementation/
+- title: Преобразователь протоколов для Pacific Vision
+  docs:
+    - link: /projs_ru/gw/
+    - link: /projs_ru/gw/common/
+    - link: /projs_ru/gw/idea/
+    - link: /projs_ru/gw/engineering/
+- title: Миграция с RSView на FactoryTalk
+  docs:
+    - link: /projs_ru/rs/
+    - link: /projs_ru/rs/idea/
+    - link: /projs_ru/rs/scope/
+    - link: /projs_ru/rs/solutions/
+    - link: /projs_ru/rs/shop90/
+    - link: /projs_ru/rs/finally/
+- title: Smart Factory для оконного завода
+  docs:
+    - link: /projs_ru/sf/
+    - link: /projs_ru/sf/idea/
+    - link: /projs_ru/sf/hardware/
+    - link: /projs_ru/sf/
+    - link: /docs/layouts/
+    - link: /docs/permalinks/
+    - link: /docs/themes/
+    - link: /docs/pagination/
+- title: Хобби-проекты
+  docs:
+    - link: /docs/plugins/
+    - link: /docs/migrations/
+    - link: /docs/upgrading/
+    - link: /docs/deployment/
