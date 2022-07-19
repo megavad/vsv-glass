@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Реализация</title>
+  </head>
+  <body>
+    
+<header>
+<link rel="stylesheet" href="/css/screen.css">
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">test</span>
+          <img src="/img/logo.png" width="140" height="65" alt="Jekyll Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/index_ru.html">Главная</a></li>
+  <li class="current"><a href="/projs_ru/">Проекты</a></li>
+  <li><a href="/resources/">Под капотом</a></li>
+  <li><a href="/showcase/">В картинках</a></li>
+  <li><a href="/news/">Новости</a></li>
+  <li><a href="/about.html">About</a></li>
+  <li><a href="/">En</a></li>
+  </ul>
+</nav>
+    <!--div class="search hide-on-mobiles">
+      {/% include search/input.html -%}
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="/releases/tag/v">v</a></li>
+        <li><a href="">GitHub</a></li>
+
+      </ul>
+    </div>-->
+  </div>
+  <!--nav class="mobile-nav show-on-mobiles">
+    {/% include mobile-nav-items.html -%}
+  </nav-->
+</header>
+
+    <section class="desc">
+  <div class="grid">
+    <!-- {/% include docs_contents_mobile.html -%} currently not opt for mobiles-->
+    <div class="unit four-fifths">
+      <article>
+        <h1>Описание</h1>
+        <h2>3. Реализация</h2>
+        <p>In the <code class="language-plaintext highlighter-rouge">build</code> (or <code class="language-plaintext highlighter-rouge">serve</code>) arguments, you can specify a Jekyll environment
+and value. The build will then apply this value in any conditional statements
+in your content.</p>
+
+<p>For example, suppose you set this conditional statement in your code:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">jekyll</span><span class="p">.</span><span class="nv">environment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"production"</span><span class="w"> </span><span class="p">%}</span>
+   <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>disqus.html<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>When you build your Jekyll site, the content inside the <code class="language-plaintext highlighter-rouge">if</code> statement won’t be
+run unless you also specify a <code class="language-plaintext highlighter-rouge">production</code> environment in the build command,
+like this:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production jekyll build
+</code></pre></div></div>
+
+<p>Specifying an environment value allows you to make certain content available
+only within specific environments.</p>
+
+<p>The default value for <code class="language-plaintext highlighter-rouge">JEKYLL_ENV</code> is <code class="language-plaintext highlighter-rouge">development</code>. Therefore if you omit
+<code class="language-plaintext highlighter-rouge">JEKYLL_ENV</code> from the build arguments, the default value will be
+<code class="language-plaintext highlighter-rouge">JEKYLL_ENV=development</code>. Any content inside
+<code class="language-plaintext highlighter-rouge">{% if jekyll.environment == "development" %}</code> tags will
+automatically appear in the build.</p>
+
+<p>Your environment values can be anything you want (not just <code class="language-plaintext highlighter-rouge">development</code> or
+<code class="language-plaintext highlighter-rouge">production</code>). Some elements you might want to hide in development
+environments include Disqus comment forms or Google Analytics. Conversely,
+you might want to expose an “Edit me in GitHub” button in a development
+environment but not include it in production environments.</p>
+
+<p>By specifying the option in the build command, you avoid having to change
+values in your configuration files when moving from one environment to another.</p>
+
+<p class="note">To switch part of your config settings depending on the environment, use the
+<a href="/docs/configuration/options/#build-command-options">build command option</a>,
+for example <code>--config _config.yml,_config_development.yml</code>. Settings
+in later files override settings in earlier files.</p>
+ва
+        <div class="section-nav">
+      <div class="left align-right">
+        <a href="" class="prev">Back</a>
+        </div>
+      <div class="right align-left">
+      <span class="next disabled">Next</span>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <ol class="step-nav">
+  <li><a href="/projs_ru/gw/common/">
+    Аннотация
+  </a></li>
+  <li><a href="/projs_ru/gw/engineering/">
+    Решение
+  </a></li>
+  <li><a href="/projs_ru/gw/idea/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/">
+    Index
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/">
+    Инспекционная система для линии резки
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">
+    Пилотное решение
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/engineering/">
+    Engineering
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/initial_solution/">
+    Проработка решения
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/insp_proj/">
+    Идея
+  </a></li>
+  <li class="current"><a href="/projs_ru/insp_proj/solution/implementation/">
+    Реализация
+  </a></li>
+  </ol>
+</article>
+    </div>
+   <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>Инспекционная система для линии резки</h4>
+      <ul>
+      <li><a href="/projs_ru/insp_proj/">Инспекционная система для линии резки</a></li>
+      <li><a href="/projs_ru/insp_proj/initial_solution/">Проработка решения</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">Пилотное решение</a></li>
+      <li class="current"><a href="/projs_ru/insp_proj/solution/implementation/">Реализация</a></li>
+      </ul>
+    <h4>Преобразователь протоколов для Pacific Vision</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href="/projs_ru/gw/common/">Аннотация</a></li>
+      <li><a href="/projs_ru/gw/idea/">Идея</a></li>
+      <li><a href="/projs_ru/gw/engineering/">Решение</a></li>
+      </ul>
+    <h4>Миграция с RSView на FactoryTalk</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Smart Factory для оконного завода</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Хобби-проекты</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+
+  </body>
+</html>

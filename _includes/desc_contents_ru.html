@@ -5,17 +5,17 @@
       <ul>
       {% for item in section.docs -%}
         {% assign item_url = item.link -%}
-         {{ item_url }}
+
         {% assign p = site.projs_ru | where:"url", item_url | first -%}
 
         <li {%- if item_url == page.url %} class="current" {%- endif %}><a href="{{ p.url | relative_url }}">
           {{- p.title -}}
-          {{p.url}}
+
         </a></li>
       {% endfor -%}
 
       {% for item in site.projs_ru -%}
-        {{ item.title }}
+        
       {% endfor -%}
       </ul>
     {% endfor -%}

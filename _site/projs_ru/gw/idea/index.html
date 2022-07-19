@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Идея</title>
+  </head>
+  <body>
+    
+<header>
+<link rel="stylesheet" href="/css/screen.css">
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">test</span>
+          <img src="/img/logo.png" width="140" height="65" alt="Jekyll Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/index_ru.html">Главная</a></li>
+  <li class="current"><a href="/projs_ru/">Проекты</a></li>
+  <li><a href="/resources/">Под капотом</a></li>
+  <li><a href="/showcase/">В картинках</a></li>
+  <li><a href="/news/">Новости</a></li>
+  <li><a href="/about.html">About</a></li>
+  <li><a href="/">En</a></li>
+  </ul>
+</nav>
+    <!--div class="search hide-on-mobiles">
+      {/% include search/input.html -%}
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="/releases/tag/v">v</a></li>
+        <li><a href="">GitHub</a></li>
+
+      </ul>
+    </div>-->
+  </div>
+  <!--nav class="mobile-nav show-on-mobiles">
+    {/% include mobile-nav-items.html -%}
+  </nav-->
+</header>
+
+    <section class="desc">
+  <div class="grid">
+    <!-- {/% include docs_contents_mobile.html -%} currently not opt for mobiles-->
+    <div class="unit four-fifths">
+      <article>
+        <h1>Описание</h1>
+        <h2>1. Идея</h2>
+        <p>Main idea was to remove Mitsubishi PLC from dataflow chain.</p>
+
+<p>Pilot project is based on computers with Windows XP embedded as Inspection system core, and line PLC - Siemens with communication processor dedicated for this task.</p>
+
+<p>Our application (GW) should read all traffic from inspection application(APP), running on “Main PC”, to RS232 via Melsec protocol, extract necessary bits and bytes and send it via socket to Siemens (PLC). Also GW should answer to APP with watchdog bit (it should be changed once per 500ms).</p>
+
+<img src="/img/gw_simplified.svg">
+
+<p>First of all we need to sniff some traffic and analyze typical dataflow. Below you could see example of data from remote PC to Mitsubishi PLC</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">25</span>	<span class="mf">0.00000838</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_BAUD_RATE</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">Rate</span><span class="o">:</span> <span class="mi">9600</span>
+<span class="mi">26</span>	<span class="mf">0.00000587</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_RTS</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>		
+<span class="mi">27</span>	<span class="mf">0.00000587</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_DTR</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>		
+<span class="mi">28</span>	<span class="mf">0.00000419</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_LINE_CONTROL</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">StopBits</span><span class="o">:</span> <span class="mi">1</span> <span class="n">Parity</span><span class="o">:</span> <span class="n">ODD</span> <span class="n">WordLength</span><span class="o">:</span> <span class="mi">8</span>
+<span class="mi">29</span>	<span class="mf">0.00000335</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_CHAR</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">EOF</span><span class="o">:</span><span class="mi">0</span> <span class="n">ERR</span><span class="o">:</span><span class="mi">0</span> <span class="n">BRK</span><span class="o">:</span><span class="mi">0</span> <span class="n">EVT</span><span class="o">:</span><span class="mi">0</span> <span class="n">XON</span><span class="o">:</span><span class="mi">11</span> <span class="n">XOFF</span><span class="o">:</span><span class="mi">13</span>
+<span class="mi">30</span>	<span class="mf">0.00000503</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_HANDFLOW</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">Shake</span><span class="o">:</span><span class="mi">1</span> <span class="n">Replace</span><span class="o">:</span><span class="mi">40</span> <span class="n">XonLimit</span><span class="o">:</span><span class="mi">2048</span> <span class="n">XoffLimit</span><span class="o">:</span><span class="mi">512</span>
+<span class="mi">31</span>	<span class="mf">0.00000335</span>	<span class="n">AgsMHP</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_QUEUE_SIZE</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">InSize</span><span class="o">:</span> <span class="mi">1024</span> <span class="n">OutSize</span><span class="o">:</span> <span class="mi">1024</span>
+</code></pre></div></div>
+
+<p class="note">тест</p>
+ва
+        <div class="section-nav">
+      <div class="left align-right">
+        <a href="" class="prev">Back</a>
+        </div>
+      <div class="right align-left">
+      <a href="" class="next">Next</a>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <ol class="step-nav">
+  <li><a href="/projs_ru/gw/common/">
+    Аннотация
+  </a></li>
+  <li><a href="/projs_ru/gw/engineering/">
+    Решение
+  </a></li>
+  <li class="current"><a href="/projs_ru/gw/idea/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/">
+    Index
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/">
+    Инспекционная система для линии резки
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">
+    Пилотное решение
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/engineering/">
+    Engineering
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/initial_solution/">
+    Проработка решения
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/insp_proj/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/implementation/">
+    Реализация
+  </a></li>
+  </ol>
+</article>
+    </div>
+   <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>Инспекционная система для линии резки</h4>
+      <ul>
+      <li><a href="/projs_ru/insp_proj/">Инспекционная система для линии резки</a></li>
+      <li><a href="/projs_ru/insp_proj/initial_solution/">Проработка решения</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">Пилотное решение</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/implementation/">Реализация</a></li>
+      </ul>
+    <h4>Преобразователь протоколов для Pacific Vision</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href="/projs_ru/gw/common/">Аннотация</a></li>
+      <li class="current"><a href="/projs_ru/gw/idea/">Идея</a></li>
+      <li><a href="/projs_ru/gw/engineering/">Решение</a></li>
+      </ul>
+    <h4>Миграция с RSView на FactoryTalk</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Smart Factory для оконного завода</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Хобби-проекты</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+
+  </body>
+</html>

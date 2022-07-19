@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Проработка решения</title>
+  </head>
+  <body>
+    
+<header>
+<link rel="stylesheet" href="/css/screen.css">
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">test</span>
+          <img src="/img/logo.png" width="140" height="65" alt="Jekyll Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/index_ru.html">Главная</a></li>
+  <li class="current"><a href="/projs_ru/">Проекты</a></li>
+  <li><a href="/resources/">Под капотом</a></li>
+  <li><a href="/showcase/">В картинках</a></li>
+  <li><a href="/news/">Новости</a></li>
+  <li><a href="/about.html">About</a></li>
+  <li><a href="/">En</a></li>
+  </ul>
+</nav>
+    <!--div class="search hide-on-mobiles">
+      {/% include search/input.html -%}
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="/releases/tag/v">v</a></li>
+        <li><a href="">GitHub</a></li>
+
+      </ul>
+    </div>-->
+  </div>
+  <!--nav class="mobile-nav show-on-mobiles">
+    {/% include mobile-nav-items.html -%}
+  </nav-->
+</header>
+
+    <section class="desc">
+  <div class="grid">
+    <!-- {/% include docs_contents_mobile.html -%} currently not opt for mobiles-->
+    <div class="unit four-fifths">
+      <article>
+        <h1>Описание</h1>
+        <h2>1. Проработка решения</h2>
+        <p>Initial soultion was based on data that application (APP) could receive from Sick MLG2 sensor bar (MLG) via Ethernet/IP(with cifX 50E-RE PCIE card) every 10ms and encoder + glass sensor data via IO PCIE board from Advantech (PCIE-1884).</p>
+
+<p>Ethernet/IP protocol was initially in solution because of PLC-based pre-solution.</p>
+
+<p>Pilot solution consists of 6 parts:</p>
+<ul>
+  <li>GUI with current NC-file reading and visualization (every 1 sec)</li>
+  <li>Ethernet/IP CIP message handler thread (continuous)</li>
+  <li>PCIE-1884 (Advantech) encoder counlter/Digital Input handler thread (every 1ms)</li>
+  <li>VSM cutting app log reading thread (if new NC file opened and sent to work by operator), every 30 seconds</li>
+  <li>SLC 5/05 signal handler thread (every 100 ms)</li>
+  <li>calculation thread (event-based)
+Because of slow delivery of cards deep investigation of CIP session establishing done.
+Switching Windows timer to high resolution (from 15ms to 1ms) lets to solve Ethernet/IP task without cifX 50E-RE PCIE card (we need to receive UDP messages from MLG every 10ms to achieve necessary resolution).</li>
+</ul>
+
+<p class="note warning">Advantech Spartan-6 based IO card was also not good solution because of a buggy driver (value -1 on every counter channel even if we do not use it, and no reaction on any event after that until you switch off this device in Device Manager and turn on again) and no reaction from official support - we decide not to use Advantech cards due to terrible support.</p>
+
+<img src="/img/schema_actual.svg">
+
+<p class="note info">This is actual variant of the system.</p>
+ва
+        <div class="section-nav">
+      <div class="left align-right">
+        <a href="" class="prev">Back</a>
+        </div>
+      <div class="right align-left">
+      <a href="" class="next">Next</a>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <ol class="step-nav">
+  <li><a href="/projs_ru/gw/common/">
+    Аннотация
+  </a></li>
+  <li><a href="/projs_ru/gw/engineering/">
+    Решение
+  </a></li>
+  <li><a href="/projs_ru/gw/idea/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/">
+    Index
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/">
+    Инспекционная система для линии резки
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">
+    Пилотное решение
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/engineering/">
+    Engineering
+  </a></li>
+  <li class="current"><a href="/projs_ru/insp_proj/initial_solution/">
+    Проработка решения
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/insp_proj/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/implementation/">
+    Реализация
+  </a></li>
+  </ol>
+</article>
+    </div>
+   <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>Инспекционная система для линии резки</h4>
+      <ul>
+      <li><a href="/projs_ru/insp_proj/">Инспекционная система для линии резки</a></li>
+      <li class="current"><a href="/projs_ru/insp_proj/initial_solution/">Проработка решения</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">Пилотное решение</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/implementation/">Реализация</a></li>
+      </ul>
+    <h4>Преобразователь протоколов для Pacific Vision</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href="/projs_ru/gw/common/">Аннотация</a></li>
+      <li><a href="/projs_ru/gw/idea/">Идея</a></li>
+      <li><a href="/projs_ru/gw/engineering/">Решение</a></li>
+      </ul>
+    <h4>Миграция с RSView на FactoryTalk</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Smart Factory для оконного завода</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Хобби-проекты</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+
+  </body>
+</html>

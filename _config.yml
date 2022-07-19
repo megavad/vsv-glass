@@ -16,6 +16,10 @@ collections:
     permalink: "/:collection/:path/"
     #permalink: "/projs/"
     output: true
+  projs_ru:
+    permalink: "/:collection/:path/"
+    #permalink: "/projs/"
+    output: true
   posts:
     permalink: "/news/:year/:month/:day/:title/"
     output: true

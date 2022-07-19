@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Аннотация</title>
+  </head>
+  <body>
+    
+<header>
+<link rel="stylesheet" href="/css/screen.css">
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">test</span>
+          <img src="/img/logo.png" width="140" height="65" alt="Jekyll Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/index_ru.html">Главная</a></li>
+  <li class="current"><a href="/projs_ru/">Проекты</a></li>
+  <li><a href="/resources/">Под капотом</a></li>
+  <li><a href="/showcase/">В картинках</a></li>
+  <li><a href="/news/">Новости</a></li>
+  <li><a href="/about.html">About</a></li>
+  <li><a href="/">En</a></li>
+  </ul>
+</nav>
+    <!--div class="search hide-on-mobiles">
+      {/% include search/input.html -%}
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="/releases/tag/v">v</a></li>
+        <li><a href="">GitHub</a></li>
+
+      </ul>
+    </div>-->
+  </div>
+  <!--nav class="mobile-nav show-on-mobiles">
+    {/% include mobile-nav-items.html -%}
+  </nav-->
+</header>
+
+    <section class="desc">
+  <div class="grid">
+    <!-- {/% include docs_contents_mobile.html -%} currently not opt for mobiles-->
+    <div class="unit four-fifths">
+      <article>
+        <h1>Описание</h1>
+        <h2>0. Аннотация</h2>
+        <p>Automotive production has several automatic lines with various inspection systems. Some of systems should inspect serigraphy* on glass.</p>
+
+<p>Serigraphy simplify future steps during automotive production (glass to vehicle gluing, computer vision guide-marking (for robotic gluing of sensor holder or  rear mirror holder)).</p>
+
+<p class="note info">Serigraphy is a method of applying pigments on glass by silk screen printing with subsequent firing in the process of thermal hardening, which ensures a high degree of adhesion</p>
+
+<img src="/img/inspection.drawio.svg">
+
+<p>We need to verify serigraphy quality, and this is a reason of usage printing inspection systems during this process.</p>
+
+<p>Typical solution was provided by Pacific systems, Japan. It consists of couple of linescan cameras with high resolution, each camera is connected to framegrabber system (PCI card on dedicated computer which provides clk signal and handle camera signal). System has main computer with an operator application. It visualize data from framegrabber computers and calculate whether serigraphy status OK or NOK.</p>
+
+<p>Then this status goes to Mitsubishi PLC via RS232,  then it translated to printing line PLC and in case of printing defect glass goes to “manual inspection conveyor”, operator checks this print and serigraphy silkscreen mask, paint etc. Remote PC is showing a picture with defect of glass traveled to “manual inspection conveyor” (that could be far from inspection system) to simplify manual defect search.</p>
+
+<ul>
+  <li><a href="/insp_proj/idea/options/">Discussed options Options</a></li>
+  <li><a href="/insp_proj/solution/default/">Solution</a></li>
+  <li><a href="/insp_proj/configuration/front-matter-defaults/">Front Matter Defaults</a></li>
+  <li><a href="/insp_proj/configuration/environments/">Environments</a></li>
+  <li><a href="/insp_proj/configuration/markdown/">Markdown Options</a></li>
+  <li><a href="/insp_proj/configuration/liquid/">Liquid Options</a></li>
+  <li><a href="/insp_proj/configuration/sass/">Sass/SCSS Options</a></li>
+  <li><a href="/insp_proj/configuration/webrick/">Webrick Options</a></li>
+  <li><a href="/insp_proj/configuration/incremental-regeneration/">Incremental Regeneration</a></li>
+</ul>
+ва
+        <div class="section-nav">
+      <div class="left align-right">
+        <span class="prev disabled">Back</span>
+        </div>
+      <div class="right align-left">
+      <a href="" class="next">Next</a>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <ol class="step-nav">
+  <li class="current"><a href="/projs_ru/gw/common/">
+    Аннотация
+  </a></li>
+  <li><a href="/projs_ru/gw/engineering/">
+    Решение
+  </a></li>
+  <li><a href="/projs_ru/gw/idea/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/">
+    Index
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/">
+    Инспекционная система для линии резки
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">
+    Пилотное решение
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/engineering/">
+    Engineering
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/initial_solution/">
+    Проработка решения
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/insp_proj/">
+    Идея
+  </a></li>
+  <li><a href="/projs_ru/insp_proj/solution/implementation/">
+    Реализация
+  </a></li>
+  </ol>
+</article>
+    </div>
+   <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>Инспекционная система для линии резки</h4>
+      <ul>
+      <li><a href="/projs_ru/insp_proj/">Инспекционная система для линии резки</a></li>
+      <li><a href="/projs_ru/insp_proj/initial_solution/">Проработка решения</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/automotive_cutting_line/">Пилотное решение</a></li>
+      <li><a href="/projs_ru/insp_proj/solution/implementation/">Реализация</a></li>
+      </ul>
+    <h4>Преобразователь протоколов для Pacific Vision</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li class="current"><a href="/projs_ru/gw/common/">Аннотация</a></li>
+      <li><a href="/projs_ru/gw/idea/">Идея</a></li>
+      <li><a href="/projs_ru/gw/engineering/">Решение</a></li>
+      </ul>
+    <h4>Миграция с RSView на FactoryTalk</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Smart Factory для оконного завода</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    <h4>Хобби-проекты</h4>
+      <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      </ul>
+    </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+
+  </body>
+</html>
