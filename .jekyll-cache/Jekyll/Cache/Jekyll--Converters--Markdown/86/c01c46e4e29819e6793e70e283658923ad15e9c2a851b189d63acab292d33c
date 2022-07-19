@@ -1,0 +1,39 @@
+I"<h1 id="аннотация">Аннотация</h1>
+<p>Иногда при выпуске листового стекла с помощью флоат-професса возникают мелкие дефекты. Область возникновения этих дефектов утилизируется и снова подаётся в печь. Дефективная область обладает достаточно большой площадью, если её разделить на части, которые бы могли быть переработаны или утилизированы по отдельности - это было бы разумно.</p>
+
+<p>Производство автостекла на заводе в г. Бор расположено рядом с флоат-процессом, и это производство может принять дефективные листы, поделенные на нужного размера прямоугольники, и использовать их для производства бокового стекла. Один дефект может затронуть от 1 до 4 заготовок(будущих боковых стёкол) из прямоугльной заготовки. На одном прямоугольном листе могут быть от 2 до 30 заготовок боковых стёкол.</p>
+
+<p>Automotive production in Bor is located near float process, and it could get this glass sheet divided to rectangle pieces for side window production process. One defect could affect from 1 to 4 side window raw quadrangles (each one should become side window if no defect on it) from sheet. From 2 to 30 quadrangles could be on one sheet.</p>
+
+<h1 id="идея">Идея</h1>
+<p>Основная идея заключается в обнаружении позиции и размера дефекта, вычисления заготовок, которые будут им затронуты, и автоматическая утилизация эатронутых заготовок.</p>
+
+<h1 id="решение">Решение</h1>
+<p>This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (&lt;1mm in diameter) defects detected by precise laser measurement system during float process and marked with white color.
+
+<img src="/img/typical_float.jpg">
+</p>
+
+<p class="note info">Typical float glass factory</p>
+
+<p>Continuous float glass ribbon from furnace dividing into rectangles with special size to minimize waste in next cutting operations (in accordance with planned model of the car), and we are detecting white rounds on that rectangles.</p>
+
+<p>These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.</p>
+
+<img src="/img/rectangle.png">
+<p class="note info">Rectangle with affected quadrangle: defect is represented by rectangle because of detection procedure, its resolution is 10mm, so we need to extend defected area to exclude error (Ex.: when front edge of round could be between IR detectors).</p>
+
+<tr><td>
+<img alt="rectangle glass before VSM cutting" title="rectangle glass before VSM cutting" src="/img/conv_before_vsm.png"></td><td><img src="/img/glass_scrapped_ksm.png"></td>
+</tr>
+
+<p class="note info">On the left there is a rectangle glass before VSM cutting, on the right you could see a scrapped piece of this rectangle with white-painted defect on the edge</p>
+
+<h2 id="economics">Economics</h2>
+
+<p>This glass is cheaper, automation of scrapping and processing time saving is reasonable.
+Picture below represents first variant of solution.</p>
+
+<img src="/img/schema_first.svg">
+<p>This was the first variant of the system.</p>
+:ET

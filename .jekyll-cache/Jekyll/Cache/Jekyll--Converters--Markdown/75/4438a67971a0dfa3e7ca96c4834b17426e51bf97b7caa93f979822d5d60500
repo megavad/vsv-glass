@@ -1,0 +1,9 @@
+I"°<p>If your Jekyll site has a lot of pages, you might want to create navigation for the pages. Instead of hard-coding navigation links, you can programmatically retrieve a list of pages to build the navigation for your site.</p>
+
+<p>There are two primary ways of retrieving pages on a Jekyll site:</p>
+
+<ul>
+  <li><strong>Retrieve pages listed in a YAML data source</strong>. Store the page data in a YAML (or JSON or CSV) file in the <code class="language-plaintext highlighter-rouge">_data</code> folder, loop through the YAML properties, and insert the values into your theme.</li>
+  <li><strong>Retrieve pages by looping through the page front matter</strong>. Look through</li>
+</ul>
+:ET

@@ -1,0 +1,10 @@
+I"�<p>Jekyll’s main job is to convert your raw text files into a static website. It does this by rendering Liquid, Markdown, and other transforms as it generates the static HTML output.</p>
+
+<p>In this conversion process, it’s important to understand Jekyll’s order of interpretation. By “order of interpretation,” we mean what gets rendered, in what order, and what rules get applied in converting content.</p>
+
+<p>If an element isn’t converting, you can troubleshoot the problem by analyzing the order of interpretation.</p>
+
+<h2 id="order-of-interpretations">Order of interpretations</h2>
+
+<p>Jekyll converts your site in the following order:</p>
+:ET

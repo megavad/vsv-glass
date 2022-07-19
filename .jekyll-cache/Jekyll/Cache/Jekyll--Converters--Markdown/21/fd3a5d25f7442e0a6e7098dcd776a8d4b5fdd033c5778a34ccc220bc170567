@@ -1,0 +1,107 @@
+I"(<ul>
+  <li>
+    <p>This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (&lt;1mm in diameter) defects detected by precise laser measurement system during float process and marked with color.</p>
+  </li>
+  <li>
+    <p>Continuous float glass ribbon from furnace dividing into rectangles with special size to minimize waste in next cutting operations (in accordance with planned model of the car), and we are detecting white rounds on that rectangles.</p>
+  </li>
+  <li>
+    <p>These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.
+
+<img src="/img/rectangle.png">
+</p>
+  </li>
+</ul>
+
+<p class="note info">Rectangle with affected quadrangle: defect is represented by rectangle because of detection procedure, its resolution is 10mm, so we need to extend defected area to exclude error (Ex.: when front edge of round could be between IR detectors).</p>
+
+<h2 id="economics">Economics</h2>
+
+<p>This glass is cheaper, automation of scrapping and processing time saving is reasonable</p>
+
+<img src="/img/Inspection Platform Dataflow-schema.drawio.svg">
+<p>Jekyll is a Ruby gem. First, install Ruby on your machine.
+Go to <a href="/docs/installation/">Installation</a> and follow the
+instructions for your operating system.</p>
+
+<p>With Ruby installed, install Jekyll from the terminal:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll bundler
+</code></pre></div></div>
+
+<p>Create a new <code class="language-plaintext highlighter-rouge">Gemfile</code> to list your project’s dependencies:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle init
+</code></pre></div></div>
+
+<p>Edit the <code class="language-plaintext highlighter-rouge">Gemfile</code> in a text editor and add jekyll as a dependency:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"jekyll"</span>
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">bundle</code> to install jekyll for your project.</p>
+
+<p>You can now prefix all jekyll commands listed in this tutorial with <code class="language-plaintext highlighter-rouge">bundle exec</code>
+to make sure you use the jekyll version defined in your <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
+
+<h2 id="create-a-site">Create a site</h2>
+
+<p>It’s time to create a site! Create a new directory for your site and name
+it whatever you want. Through the rest of this tutorial we’ll refer to this
+directory as <strong>root</strong>.</p>
+
+<p>You can also initialize a Git repository here.</p>
+
+<p>One of the great things about Jekyll is there’s no database. All content and
+site structure are files that a Git repository can version. Using a repository
+is optional but is recommended. You can learn more
+about using Git by reading the
+<a href="https://guides.github.com/introduction/git-handbook/">Git Handbook</a>.</p>
+
+<p>Let’s add your first file. Create <code class="language-plaintext highlighter-rouge">index.html</code> in <strong>root</strong> with the following
+content:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Home<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello World!<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="build">Build</h2>
+
+<p>Since Jekyll is a static site generator, it has to build the site
+before we can view it. Run either of the following commands to build your site:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">jekyll build</code> - Builds the site and outputs a static site to a directory
+called <code class="language-plaintext highlighter-rouge">_site</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll serve</code> - Does <code class="language-plaintext highlighter-rouge">jekyll build</code> and runs it on a local web server at <code class="language-plaintext highlighter-rouge">http://localhost:4000</code>, rebuilding the site any time you make a change.</li>
+</ul>
+
+<p class="note info">When you’re developing a site, use <code class="language-plaintext highlighter-rouge">jekyll serve</code>. To force the browser to refresh with every change, use <code class="language-plaintext highlighter-rouge">jekyll serve --livereload</code>.
+If there’s a conflict or you’d like Jekyll to serve your development site at a different URL, use the <code class="language-plaintext highlighter-rouge">--host</code> and <code class="language-plaintext highlighter-rouge">--port</code> arguments,
+as described in the <a href="/docs/configuration/options/#serve-command-options">serve command options</a>.</p>
+
+<p class="note warning">The version of the site that <code class="language-plaintext highlighter-rouge">jekyll serve</code> builds in <code class="language-plaintext highlighter-rouge">_site</code> is not suited for deployment. Links and asset URLs in sites created
+with <code class="language-plaintext highlighter-rouge">jekyll serve</code> will use <code class="language-plaintext highlighter-rouge">https://localhost:4000</code> or the value set with command-line configuration, instead of the values set
+in <a href="/docs/configuration/">your site’s configuration file</a>. To learn about how to build your site when it’s
+ready for deployment, read the <a href="/docs/step-by-step/10-deployment/">Deployment</a> section of this tutorial.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">jekyll serve</code> and go to
+<a href="http://localhost:4000" target="_blank" data-proofer-ignore="">http://localhost:4000</a> in
+your browser. You should see “Hello World!”.</p>
+
+<p>At this point, you might be thinking, “So what?”. The only thing that happened was that Jekyll copied an
+HTML file from one place to another.</p>
+
+<p>Patience, young grasshopper, there’s
+still much to learn!</p>
+
+<p>Next. you’ll learn about Liquid and templating.</p>
+:ET

@@ -1,0 +1,26 @@
+I"�<p>Automotive production has several automatic lines with various inspection systems. Some of systems should inspect serigraphy* on glass.</p>
+
+<p>Serigraphy simplify future steps during automotive production (glass to vehicle gluing, computer vision guide-marking (for robotic gluing of sensor holder or  rear mirror holder)).</p>
+
+<p class="note info">Serigraphy is a method of applying pigments on glass by silk screen printing with subsequent firing in the process of thermal hardening, which ensures a high degree of adhesion</p>
+
+<img src="/img/inspection.drawio.svg">
+
+<p>We need to verify serigraphy quality, and this is a reason of usage printing inspection systems during this process.</p>
+
+<p>Typical solution was provided by Pacific systems, Japan. It consists of couple of linescan cameras with high resolution, each camera is connected to framegrabber system (PCI card on dedicated computer which provides clk signal and handle camera signal). System has main computer with an operator application. It visualize data from framegrabber computers and calculate whether serigraphy status OK or NOK.</p>
+
+<p>Then this status goes to Mitsubishi PLC via RS232,  then it translated to printing line PLC and in case of printing defect glass goes to “manual inspection conveyor”, operator checks this print and serigraphy silkscreen mask, paint etc. Remote PC is showing a picture with defect of glass traveled to “manual inspection conveyor” (that could be far from inspection system) to simplify manual defect search.</p>
+
+<ul>
+  <li><a href="/insp_proj/idea/options/">Discussed options Options</a></li>
+  <li><a href="/insp_proj/solution/default/">Solution</a></li>
+  <li><a href="/insp_proj/configuration/front-matter-defaults/">Front Matter Defaults</a></li>
+  <li><a href="/insp_proj/configuration/environments/">Environments</a></li>
+  <li><a href="/insp_proj/configuration/markdown/">Markdown Options</a></li>
+  <li><a href="/insp_proj/configuration/liquid/">Liquid Options</a></li>
+  <li><a href="/insp_proj/configuration/sass/">Sass/SCSS Options</a></li>
+  <li><a href="/insp_proj/configuration/webrick/">Webrick Options</a></li>
+  <li><a href="/insp_proj/configuration/incremental-regeneration/">Incremental Regeneration</a></li>
+</ul>
+:ET

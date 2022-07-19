@@ -1,0 +1,30 @@
+I"2<p>All data we need stored in the ini file of APP. We have two apps - for Main PC and for Remote PC. To reduce details - tasks were very closed to each other and we will review solution for Main PC only.</p>
+
+<p>First of all we need to sniff some traffic and analyze typical dataflow. Below you could see example of traffic from remote PC to Mitsubishi PLC - establishing communication.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">25</span>	<span class="mf">0.00000838</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_BAUD_RATE</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">Rate</span><span class="o">:</span> <span class="mi">9600</span>
+<span class="mi">26</span>	<span class="mf">0.00000587</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_RTS</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>		
+<span class="mi">27</span>	<span class="mf">0.00000587</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_DTR</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>		
+<span class="mi">28</span>	<span class="mf">0.00000419</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_LINE_CONTROL</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">StopBits</span><span class="o">:</span> <span class="mi">1</span> <span class="n">Parity</span><span class="o">:</span> <span class="n">ODD</span> <span class="n">WordLength</span><span class="o">:</span> <span class="mi">8</span>
+<span class="mi">29</span>	<span class="mf">0.00000335</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_CHAR</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">EOF</span><span class="o">:</span><span class="mi">0</span> <span class="n">ERR</span><span class="o">:</span><span class="mi">0</span> <span class="n">BRK</span><span class="o">:</span><span class="mi">0</span> <span class="n">EVT</span><span class="o">:</span><span class="mi">0</span> <span class="n">XON</span><span class="o">:</span><span class="mi">11</span> <span class="n">XOFF</span><span class="o">:</span><span class="mi">13</span>
+<span class="mi">30</span>	<span class="mf">0.00000503</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_HANDFLOW</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">Shake</span><span class="o">:</span><span class="mi">1</span> <span class="n">Replace</span><span class="o">:</span><span class="mi">40</span> <span class="n">XonLimit</span><span class="o">:</span><span class="mi">2048</span> <span class="n">XoffLimit</span><span class="o">:</span><span class="mi">512</span>
+<span class="mi">31</span>	<span class="mf">0.00000335</span>	<span class="n">AgsMH</span><span class="p">.</span><span class="n">exe</span>	<span class="n">IOCTL_SERIAL_SET_QUEUE_SIZE</span>	<span class="n">Serial0</span>	<span class="n">SUCCESS</span>	<span class="n">InSize</span><span class="o">:</span> <span class="mi">1024</span> <span class="n">OutSize</span><span class="o">:</span> <span class="mi">1024</span>
+</code></pre></div></div>
+
+<p class="note">Thanks to sysinternals - I have good instruments to do this job.
+<a href="https://docs.microsoft.com/en-us/sysinternals/">Sysinternals </a></p>
+
+<p>Then I have done a dictionary (from ini file) with registers, and a data that should be stored into registers.</p>
+
+<p>Application consists from 2 threads: one is for serving APP data from virtual com port, and another is for socket to Siemens to synchrinize data with line PLC. This is console application with some debug output to its window only (Embedded XP should not use storage for writing operations).</p>
+
+<p>Serving APP data is to parce
+<a href="https://dl.mitsubishielectric.com/dl/fa/document/manual/plc/sh080008/sh080008ab.pdf">Melsec </a> protocol, extract what register we should send (from APP to PLC) or receice(from PLC(actually - our synchonized with PLC dictionary) to APP) its data.
+
+<img src="/img/gwarchitecture.svg">
+</p>
+
+<p>Then autostart for virtual com port service and GW app is added to Windows, and socket reconnection procedure in case of communication failures added.</p>
+
+<p>That is all, thank you.</p>
+:ET
