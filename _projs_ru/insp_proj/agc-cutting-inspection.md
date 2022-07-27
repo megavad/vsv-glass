@@ -9,36 +9,34 @@ position: 0
 ---
 
 #  Аннотация
-Иногда при выпуске листового стекла с помощью флоат-професса возникают мелкие дефекты. Область возникновения этих дефектов утилизируется и снова подаётся в печь. Дефективная область обладает достаточно большой площадью, если её разделить на части, которые бы могли быть переработаны или утилизированы по отдельности - это было бы разумно.
+Иногда при выпуске листового стекла с помощью флоат-процесса возникают мелкие дефекты. Часть стекольной ленты с дефектами идёт в стеклобой и снова подаётся в печь. Дефективная область обладает достаточно большой площадью, если её разделить на части, которые бы могли быть переработаны иным способом или утилизированы по отдельности - это принесло бы большую прибыль.
 
 Производство автостекла на заводе в г. Бор расположено рядом с флоат-процессом, и это производство может принять дефективные листы, поделенные на нужного размера прямоугольники, и использовать их для производства бокового стекла. Один дефект может затронуть от 1 до 4 заготовок(будущих боковых стёкол) из прямоугльной заготовки. На одном прямоугольном листе могут быть от 2 до 30 заготовок боковых стёкол.
 
-Automotive production in Bor is located near float process, and it could get this glass sheet divided to rectangle pieces for side window production process. One defect could affect from 1 to 4 side window raw quadrangles (each one should become side window if no defect on it) from sheet. From 2 to 30 quadrangles could be on one sheet.  
-
 #  Идея
-Основная идея заключается в обнаружении позиции и размера дефекта, вычисления заготовок, которые будут им затронуты, и автоматическая утилизация эатронутых заготовок.
+Основная идея заключается в обнаружении позиции и размера дефекта, вычисления заготовок, которые будут им затронуты, и автоматическая утилизация эатронутых заготовок (отправка их в стеклобой).
 
 #  Решение
-This application is for scanning glass for white rounds 20mm+ in diameter, which represents small (<1mm in diameter) defects detected by precise laser measurement system during float process and marked with white color.
+
+Приложение позволяет отсканировать стекло и обнаружить помеченные(20+ мм) области, которые указывают, что в них находится мелкий(может быть менее 1мм в диаметре) дефект, обнаруженный во время флоат-процесса высокоточной лазерной системой и помеченный белым пятном.
+
 {::nomarkdown}
 <img src="/img/typical_float.jpg">
 {:/}
 
 {: .note .info}
-Typical float glass factory
+Типичная компоновка производства float
 
-Continuous float glass ribbon from furnace dividing into rectangles with special size to minimize waste in next cutting operations (in accordance with planned model of the car), and we are detecting white rounds on that rectangles.
+Стекольная лента при выходе из печи делится(режется) на прямоугольники специального размера для минимизации отходов при последующих операциях резки (в соответствии с планируемой моделью автомобиля), а мы обнаруживаем белые пятна на этих прямоугольниках.
 
-
-
-These rectangles dividing into another smaller quadrangles, some of them could contain white rounds(as described above) and should not be processed but scrapped.
+Эти прямоугольники делятся на другие, более мелкие четырёхугольники, некоторые из которых будут включать в себя дефективные области (как описано выше) и должны быть отправлены в бой вместо того, чтобы быть вырезанными.
 
 
 {: .note .info}
 {::nomarkdown}
 <img src="/img/rectangle.png">
 {:/}
-Rectangle with affected quadrangle: defect is represented by rectangle because of detection procedure, its resolution is 10mm, so we need to extend defected area to exclude error (Ex.: when front edge of round could be between IR detectors).
+Прямогульная заготовка с повреждёнными четырёхугольниками: дефект отображён в виде прямоугольника изза процедуры детектирования, разрешение детектирующего устройства -10 мм, мы должны расширить обнаруженную область на величину погрешности чтобы исключить ошибку (Напр.: когда передняя часть белого пятна может попасть между инфракрасными диодами детектора)
 
 {::nomarkdown}
 <tr><td>

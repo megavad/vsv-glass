@@ -4,17 +4,14 @@
 - title: Проекты
   link: /projs_ru/
   show_on_mobile: true
-- title: Под капотом
-  link: /resources/
-  show_on_mobile: true
 - title: В картинках
   link: /showcase/
   show_on_mobile: false
 - title: Новости
   link: /news/
   show_on_mobile: true
-- title: About
-  link:  about.html
+- title: О компании
+  link:  about_ru.html
 - title: En
   show_on_mobile: true
   link: /
