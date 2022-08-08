@@ -8,5 +8,5 @@ _
 We develop solutions for various production systems
 Import substitution also ;)
 
-* email:info@vsv-glass.ru
+* email:vadim.vakhramov@gmail.com
 * +79ОЧО67ЧЧЧЧ
